@@ -22,9 +22,13 @@ public class Inicio extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //obtener las variables pasadas por url
 		String userName = request.getParameter("name");
-		
         String userApellido = request.getParameter("apellido");
         
+        
+        //Validamos las variables
+        if(null ==userName ||  userName.equals("")) {
+        	userName = "Unknown";
+        }
         if(null ==userApellido ||  userApellido.equals("")) {
         	userApellido = "Unknown";
         }
